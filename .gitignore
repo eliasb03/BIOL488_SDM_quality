@@ -12,6 +12,9 @@
 # R-proj
 .Rproj
 
+# Data
+*/data/*
+
 # Example code in package build process
 *-Ex.R
 
