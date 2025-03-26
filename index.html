@@ -142,25 +142,14 @@
             
             <!-- QGIS2Web Map -->
             <div class="right-map">
-                <a>
+                
                     <iframe src="https://www.gbif.org/map/?taxon_key=2887836&dataset_key=7f6d5a38-f762-11e1-a439-00145eb45e9a" 
                         width="100%" height="450px">
                     </iframe>
-                </a>
+                
             </div>
         </div>
     </div>
-
-    <div id="map"></div>
-
-    <script>
-        var map = L.map('map').setView([60, -95], 4);
-
-        L.tileLayer('https://tile.gbif.org/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-classic', {
-            attribution: '&copy; GBIF',
-            tileSize: 256
-        }).addTo(map);
-    </script>
 
     <hr>
     
