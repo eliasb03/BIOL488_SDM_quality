@@ -152,13 +152,9 @@
     <div id="map"></div>
 
     <script>
-        var map = L.map('map').setView([70, -100], 4); // Centered in Arctic region
+        var map = L.map('map').setView([60, -95], 4);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?srs=EPSG:4326&taxonKey=2887836&bin=hex&hexPerTile=117&style=green-noborder.poly', {
+        L.tileLayer('https://tile.gbif.org/3857/omt/{z}/{x}/{y}@1x.png?style=gbif-classic', {
             attribution: '&copy; GBIF',
             tileSize: 256
         }).addTo(map);
