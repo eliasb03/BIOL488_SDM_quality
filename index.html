@@ -3,84 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Point Uncertainty for Distribution Analysis</title>
+    <title>BIOL 488 Biodiversity Records Uncertainty</title>
     <style>
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            background-color: #F0F0F0;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .banner {
-            background-color: #124E78;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 26px;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 0 20px;
-        }
-        .left-box, .right-map {
-            width: 48%;
-            background-color: white;
-            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .right-map iframe {
-            display: block;
-            width: 100%;
-            height: 450px; /* Adjust the height of the map */
-            border: none;
-            border-radius: 8px;
-        }
-
-        /* Adjustments for smaller screens */
-        @media (max-width: 768px) {
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                background-color: #F0F0F0;
+                margin: 0;
+                padding: 0;
+                color: #333;
+            }
+            
+            .banner {
+                background-color: #124E78;
+                color: white;
+                text-align: center;
+                padding: 30px 20px;
+                font-size: 26px;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+            
             .container {
-                flex-direction: column; /* Stack elements vertically on smaller screens */
-                margin: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 0 20px;
             }
+            
             .left-box, .right-map {
-                width: 100%; /* Full width on small screens */
-                margin-bottom: 20px;
+                width: 48%;
+                background-color: white;
+                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 20px; /* Ensure spacing between elements */
             }
-        }
-
-        .sdm_plot {
-            text-align: center;
-            margin-top: 50px;
-        }
-        .sdm_plot p {
-            font-size: 18px;
-            line-height: 1.5;
-            color: #444;
-            max-width: 900px;
-            margin: 0 auto 30px;
-        }
-        .sdm_plot img {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-
-        /* Footer Section Styling */
-        footer {
-            background-color: #124E78;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
+            
+            .right-map iframe {
+                display: block;
+                width: 100%;
+                height: 450px; /* Adjust the height of the map */
+                border: none;
+                border-radius: 8px; /* Optional: rounded corners for iframe */
+            }
+            
+            /* Adjustments for smaller screens */
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column; /* Stack elements vertically on smaller screens */
+                    margin: 10px;
+                }
+            
+                .left-box, .right-map {
+                    width: 100%; /* Full width on small screens */
+                    margin-bottom: 20px;
+                }
+            }
+            
+            .sdm_plot {
+                text-align: center;
+                margin-top: 50px;
+            }
+            
+            .sdm_plot p {
+                font-size: 18px;
+                line-height: 1.5;
+                color: #444;
+                max-width: 900px;
+                margin: 0 auto 30px;
+            }
+            
+            .sdm_plot img {
+                width: 100%;
+                max-width: 900px;
+                height: auto;
+                margin-top: 20px;
+                border-radius: 8px;
+            }
+            
+            /* Footer Section Styling */
+            footer {
+                background-color: #124E78;
+                color: white;
+                text-align: center;
+                padding: 30px 20px;
+                margin-top: 50px;
+            }
     </style>
 </head>
 <body>
