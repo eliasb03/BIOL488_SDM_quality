@@ -27,14 +27,7 @@
             justify-content: space-between;
             margin: 0 20px;
         }
-        .left-box {
-            width: 48%;
-            background-color: white;
-            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .right-map {
+        .left-box, .right-map {
             width: 48%;
             background-color: white;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
@@ -48,6 +41,19 @@
             border: none;
             border-radius: 8px;
         }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack elements vertically on smaller screens */
+                margin: 10px;
+            }
+            .left-box, .right-map {
+                width: 100%; /* Full width on small screens */
+                margin-bottom: 20px;
+            }
+        }
+
         .sdm_plot {
             text-align: center;
             margin-top: 50px;
@@ -75,18 +81,6 @@
             padding: 30px 20px;
             margin-top: 50px;
         }
-
-        /* Responsive Design for Mobile */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                margin: 10px;
-            }
-            .left-box, .right-map {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -96,7 +90,6 @@
     <div class="container">
         <!-- Left Box for Text -->
         <div class="left-box">
-            <h2>Project Overview</h2>
             <p>Biodiversity data are records of organisms of all sorts that show when and where that species was seen. This type of data can come from many different sources, including museum databases like the Beaty Biodiversity Museum or public records from programs like iNaturalist! Resources like the Global Biodiversity Information Facility collect all of these records into one place and facilitate research of all kinds.</p>
             <p>Sometimes biodiversity records have associated data integrity problems, like incorrect ID, wrong collection date, or false locations. For researchers, it is important to know which records have enough quality to be used in their analysis.</p>
             <p>This project tests how precision uncertainty of records impact their ability to create meaningful scientific findings. This is done by filtering data based on minimum uncertainty thresholds, and then creating species distribution models based on remaining data points. Species distribution models use geographic location and presence/absence records to determine which habitat has similar climatic traits as the known habitat. In this way it generates an estimate of where we expect the species to exist or to be able to exist.</p>
@@ -105,7 +98,6 @@
 
         <!-- Right Box for Embedded Map -->
         <div class="right-map">
-            <h2>Interactive Map</h2>
             <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
                     width="100%" height="450px">
             </iframe>
