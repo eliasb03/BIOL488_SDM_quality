@@ -5,133 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOL 488 Biodiversity Records Uncertainty</title>
     <style>
-            body {
-                font-family: Helvetica, Arial, sans-serif;
-                background-color: #F0F0F0;
-                margin: 0;
-                padding: 0;
-                color: #333;
-            }
-            
-            .banner {
-                background-color: #124E78;
-                color: white;
-                text-align: center;
-                padding: 30px 20px;
-                font-size: 26px;
-                font-weight: bold;
-                margin-bottom: 30px;
-            }
-            
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #F0F0F0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .banner {
+            background-color: #124E78;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 20px;
+        }
+        
+        /* Left Box for Text (Main Column) */
+        .left-box {
+            width: 65%; 
+            background-color: transparent;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 1px;
+        }
+
+        .left-box p {
+            font-size: 18px;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        /* Right Column with Maps */
+        .right-column {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-map iframe {
+            width: 100%;
+            height: 300px; /* Adjust height of each map */
+            border: none;
+        }
+        
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
             .container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin: 0 20px;
-            }
-            
-            .left-box {
-                width: 39%; 
-                background-color: transparent;
-                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-                padding: 2px;
-                border-radius: 1px;
-            }
-
-            .left-box p {
-                    font-size: 18px;
-                    line-height: 1.5;
-                    max-width: 97%;
-                }
-
-            .right-map {
-                width: 58%; 
-                background-color: transparent;
-                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-                padding: 2px;
-                border-radius: 1px;
-            }
-            
-            .right-map iframe {
-                display: block;
-                width: 100%;
-                height: 600px; /* Adjust the height of the map */
-                border: none; /* Remove the border around the iframe */
-                border-radius: 0; /* Optional: Remove any border radius */
-            }
-            
-            /* Adjustments for smaller screens */
-            @media (max-width: 768px) {
-                .container {
-                    flex-direction: column; /* Stack elements vertically on smaller screens */
-                    margin: 10px;
-                }
-            
-                .left-box, .right-map {
-                    width: 100%; /* Full width on small screens */
-                    margin-bottom: 20px;
-                }
-            }
-            
-            .sdm_plot {
-                text-align: center;
-                margin-top: 0px;
-            }
-            
-            .sdm_plot p {
-                font-size: 18px;
-                line-height: 1.5;
-                color: #444;
-                max-width: 100%;
-                margin: 0 auto 5px;
-            }
-
-            .sdm_plot d {
-                font-size: 20px;
-                line-height: 1.5;
-                color: #000;
-                max-width: 100%;
-                margin: 0 auto 5px;
-                font-weight: bold;
-            }
-            
-            .sdm_plot img {
-                width: 100%;
-                max-width: 100%; /* Ensure it doesn't exceed its container */
-                height: auto;
-                margin: 0; /* Remove any margin */
-                padding: 0; /* Remove any padding */
-                display: block; /* Ensure no space below the image */
-            }
-
-            #map {
-                    width: 100%;
-                    height: 500px; /* Adjust height as needed */
-                }
-            
-            
-            hr {
-                border: none;
-                height: 2px;
-                background-color: #124E78; /* Dark blue from your color palette */
-                margin: 20px 0;
+                flex-direction: column; /* Stack elements vertically on smaller screens */
+                margin: 10px;
             }
         
-            footer {
-                background-color: #124E78;
-                color: white;
-                text-align: center;
-                padding: 30px 20px;
-                margin-top: 50px;
+            .left-box, .right-column {
+                width: 100%; /* Full width on small screens */
+                margin-bottom: 20px;
             }
+        }
+        
+        .sdm_plot {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .sdm_plot p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #444;
+            max-width: 100%;
+            margin: 0 auto 5px;
+        }
+
+        .sdm_plot d {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #000;
+            max-width: 100%;
+            margin: 0 auto 5px;
+            font-weight: bold;
+        }
+        
+        .sdm_plot img {
+            width: 100%;
+            max-width: 100%; /* Ensure it doesn't exceed its container */
+            height: auto;
+            margin: 0; /* Remove any margin */
+            padding: 0; /* Remove any padding */
+            display: block; /* Ensure no space below the image */
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #124E78;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #124E78;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
     <div class="banner">BIOL 488 Biodiversity Records Uncertainty</div>
     
-    <!-- Container for left and right sections -->
+    <!-- Main container for the page -->
     <div class="container">
-        <!-- Left Box for Text -->
+        <!-- Left Box for Main Text -->
         <div class="left-box">
             <p>Biodiversity data are records of organisms of all sorts that show when and where that species was seen. This type of data can come from many different sources, including museum databases like the Beaty Biodiversity Museum or public records from programs like iNaturalist! Resources like the Global Biodiversity Information Facility collect all of these records into one place and facilitate research of all kinds.</p>
             <p>Sometimes biodiversity records have associated data integrity problems, like incorrect ID, wrong collection date, or false locations. For researchers, it is important to know which records have enough quality to be used in their analysis.</p>
@@ -139,14 +131,24 @@
             <p>By setting a higher uncertainty threshold, the model receives more training data, but of a lower quality. This project looks to determine appropriate thresholds based on changes to the projected distribution between cutoffs.</p>
         </div>
 
-        <!-- Right Box for Embedded Map -->
-        <div class="right-map">
-            <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
-                    width="100%" height="450px">
-            </iframe>
+        <!-- Right Column for Maps -->
+        <div class="right-column">
+            <!-- GBIF Leaflet Map -->
+            <div class="right-map">
+                <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
+                        width="100%" height="450px">
+                </iframe>
+            </div>
+            
+            <!-- QGIS2Web Map -->
+            <div class="right-map">
+                <iframe src="https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?srs=EPSG:4326&taxonKey=2887836&bin=hex&hexPerTile=117&style=green-noborder.poly" 
+                        width="100%" height="450px">
+                </iframe>
+            </div>
         </div>
     </div>
-    
+
     <div id="map"></div>
 
     <script>
