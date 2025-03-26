@@ -48,23 +48,32 @@
             border: none;
             border-radius: 8px;
         }
-        .below-section {
+        .sdm_plot {
             text-align: center;
             margin-top: 50px;
         }
-        .below-section p {
+        .sdm_plot p {
             font-size: 18px;
             line-height: 1.5;
             color: #444;
             max-width: 900px;
             margin: 0 auto 30px;
         }
-        .below-section img {
+        .sdm_plot img {
             width: 100%;
             max-width: 900px;
             height: auto;
             margin-top: 20px;
             border-radius: 8px;
+        }
+
+        /* Footer Section Styling */
+        footer {
+            background-color: #124E78;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
         }
 
         /* Responsive Design for Mobile */
@@ -102,14 +111,20 @@
             </iframe>
         </div>
     </div>
-
-    <!-- Below Section for Image/Paragraph -->
-    <div class="below-section">
-        <h2>Additional Information</h2>
-        <p>This is where you can add additional information, pictures, or other elements. It can be used for explaining further context, displaying images related to the map, or other data visualizations.</p>
-        <!-- Image from GitHub repository -->
+    
+    <!-- SDM Plot Section (Image and Description) -->
+    <div class="sdm_plot">
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10m.png" 
              alt="Cassiope tetragona SDM 10m" style="width: 100%; height: auto;">
+        
+        <p>This plot visualizes the species distribution model (SDM) of *Cassiope tetragona* at 10-meter resolution. The map shows the predicted suitability for the species based on climatic variables and point location uncertainty.</p>
     </div>
+
+    <!-- Footer Section with About Project Text -->
+    <footer>
+        <h2>About the Project</h2>
+        <p>This project is the outcome of a final assignment for BIOL 488A, Introduction to Natural History Collections, at the University of British Columbia, completed by Elias Bowman, in March 2025.</p>
+        <p>The project was completed with support from Mark Pitblado, Jackie Chambers, Bridgette Clarkson, the rest of the BIOL 488 teaching team, and the Beaty Biodiversity Museum, on the territory of the Musqueam People.</p>
+    </footer>
 </body>
 </html>
