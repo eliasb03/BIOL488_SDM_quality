@@ -85,6 +85,15 @@
                 max-width: 100%;
                 margin: 0 auto 5px;
             }
+
+            .sdm_plot d {
+                font-size: 20px;
+                line-height: 1.5;
+                color: #000;
+                max-width: 100%;
+                margin: 0 auto 5px;
+                font-weight: bold;
+            }
             
             .sdm_plot img {
                 width: 100%;
@@ -94,7 +103,13 @@
                 padding: 0; /* Remove any padding */
                 display: block; /* Ensure no space below the image */
             }
-            
+            hr {
+                border: none;
+                height: 2px;
+                background-color: #124E78; /* Dark blue from your color palette */
+                margin: 20px 0;
+            }
+        
             /* Footer Section Styling */
             footer {
                 background-color: #124E78;
@@ -126,6 +141,8 @@
         </div>
     </div>
     
+    <hr>
+    
     <!-- SDM Plot Section (Image and Description) -->
     <div class="sdm_plot">
         <p>These plots visualizes the species distribution model (SDM) of <em>Cassiope tetragona</em> using points at a different accuracy threshold.</p>
@@ -133,18 +150,18 @@
         
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10m.png" 
              alt="Cassiope tetragona SDM 10m" style="width: 100%; height: auto;">
-        <p>10m</p>
+        <d>10m</d>
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_100m.png" 
              alt="Cassiope tetragona SDM 100m" style="width: 100%; height: auto;">
-        <p>100m</p>
+        <d>100m</d>
         
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_1000m.png" 
              alt="Cassiope tetragona SDM 1km" style="width: 100%; height: auto;">
-        <p>1km</p>
+        <d>1km</d>
         
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10000m.png" 
              alt="Cassiope tetragona SDM 10km" style="width: 100%; height: auto;">
-        <p>10km</p>
+        <d>10km</d>
         
     </div>
 
