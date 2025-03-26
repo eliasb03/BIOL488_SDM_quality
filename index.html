@@ -7,77 +7,107 @@
     <style>
         body {
             font-family: Helvetica, Arial, sans-serif;
-            background-color: #F0F0C9;
+            background-color: #F0F0F0;
             margin: 0;
             padding: 0;
+            color: #333;
         }
         .banner {
             background-color: #124E78;
             color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 24px;
+            padding: 30px 20px;
+            font-size: 26px;
             font-weight: bold;
+            margin-bottom: 30px;
         }
         .container {
             display: flex;
-            margin: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 20px;
         }
-        .content {
-            width: 66%;
-            padding: 20px;
+        .left-box {
+            width: 48%;
             background-color: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
         }
-        .image-container {
-            margin: 0;
-            padding: 0;
-            text-align: center;
+        .right-map {
+            width: 48%;
+            background-color: white;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
         }
-        .image-container iframe {
+        .right-map iframe {
             display: block;
             width: 100%;
-            height: 600px;
+            height: 450px; /* Adjust the height of the map */
             border: none;
+            border-radius: 8px;
         }
-        .boxes {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px;
-        }
-        .box {
-            width: 48%;
-            padding: 20px;
-            color: white;
+        .below-section {
             text-align: center;
+            margin-top: 50px;
+        }
+        .below-section p {
             font-size: 18px;
-            font-weight: bold;
+            line-height: 1.5;
+            color: #444;
+            max-width: 900px;
+            margin: 0 auto 30px;
         }
-        .box1 {
-            background-color: #F2BB05;
+        .below-section img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
         }
-        .box2 {
-            background-color: #D74E09;
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 10px;
+            }
+            .left-box, .right-map {
+                width: 100%;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="banner">Point Uncertainty for Distribution Analysis</div>
+    
+    <!-- Container for left and right sections -->
     <div class="container">
-        <div class="content">
+        <!-- Left Box for Text -->
+        <div class="left-box">
+            <h2>Project Overview</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <!-- Right Box for Embedded Map -->
+        <div class="right-map">
+            <h2>Interactive Map</h2>
+            <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
+                    width="100%" height="450px">
+            </iframe>
         </div>
     </div>
-    <div class="image-container">
-        <!-- Embed QGIS2Web map here using iframe -->
-        <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
-                width="100%" height="600px">
-        </iframe>
-    </div>
-    <div class="boxes">
-        <div class="box box1">Box 1</div>
-        <div class="box box2">Box 2</div>
+
+    <!-- Below Section for Image/Paragraph -->
+    <div class="below-section">
+        <h2>Additional Information</h2>
+        <p>This is where you can add additional information, pictures, or other elements. It can be used for explaining further context, displaying images related to the map, or other data visualizations.</p>
+        <!-- Image from GitHub repository -->
+        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10m.png" 
+             alt="Cassiope tetragona SDM 10m" style="width: 100%; height: auto;">
     </div>
 </body>
 </html>
