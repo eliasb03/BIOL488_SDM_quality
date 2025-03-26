@@ -79,10 +79,11 @@
             
             .sdm_plot img {
                 width: 100%;
-                max-width: 900px;
+                max-width: 100%; /* Ensure it doesn't exceed its container */
                 height: auto;
-                margin-top: 20px;
-                border-radius: 8px;
+                margin: 0; /* Remove any margin */
+                padding: 0; /* Remove any padding */
+                display: block; /* Ensure no space below the image */
             }
             
             /* Footer Section Styling */
