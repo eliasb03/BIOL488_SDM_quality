@@ -103,6 +103,13 @@
                 padding: 0; /* Remove any padding */
                 display: block; /* Ensure no space below the image */
             }
+
+            #map {
+                    width: 100%;
+                    height: 500px; /* Adjust height as needed */
+                }
+            
+            
             hr {
                 border: none;
                 height: 2px;
@@ -110,7 +117,6 @@
                 margin: 20px 0;
             }
         
-            /* Footer Section Styling */
             footer {
                 background-color: #124E78;
                 color: white;
@@ -141,11 +147,26 @@
         </div>
     </div>
     
+    <div id="map"></div>
+
+    <script>
+        var map = L.map('map').setView([70, -100], 4); // Centered in Arctic region
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?srs=EPSG:4326&taxonKey=2887836&bin=hex&hexPerTile=117&style=green-noborder.poly', {
+            attribution: '&copy; GBIF',
+            tileSize: 256
+        }).addTo(map);
+    </script>
+
     <hr>
     
     <!-- SDM Plot Section (Image and Description) -->
     <div class="sdm_plot">
-        <p>These plots visualizes the species distribution model (SDM) of <em>Cassiope tetragona</em> using points at a different accuracy threshold.</p>
+        <p>These plots visualizes the species distribution model (SDM) of <em>Cassiope tetragona</em> using points at different accuracy thresholds.</p>
         <p>The maps shows the predicted suitability for the species based on point locations and climatic variables</p>
         
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10m.png" 
