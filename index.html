@@ -52,9 +52,21 @@
             gap: 20px;
         }
 
+        .right-plot {
+            width: 100%;
+            height: 300px;
+        }
+
         .right-map {
             width: 100%;
-            height: 200px; /* Adjust height of each map */
+            height: 300px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .gbif-map {
+            width: 100%;
+            height: 300px; /* Adjust height of each map */
             border: none;
             overflow: hidden;
         }
@@ -140,20 +152,26 @@
 
         <!-- Right Column for Maps -->
         <div class="right-column">
-            <!-- GBIF Leaflet Map -->
+            <div class="right-plot">
+                <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/optimum_graph_background.png" 
+             alt="Cost Benefit Graph" style="width: 100%; height: auto;">
+            </div>
+            
             <div class="right-map">
                 <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
                         width="100%" height="450px">
                 </iframe>
             </div>
             
-            <!-- QGIS2Web Map -->
-            <div class="right-map">
-                <div id="map"></div>
-            </div>
         </div>
     </div>
 
+
+    
+    <div class="gbif-map">
+        <div id="map"></div>
+    </div>
+    
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     
     <script>
