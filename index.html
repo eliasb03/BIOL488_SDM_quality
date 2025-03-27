@@ -164,22 +164,22 @@
             worldCopyJump: true, // Fixes tiling shift
         });
         
-        // Correct Tile Layer Settings
         var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data © OpenStreetMap contributors',
             minZoom: 1,
             maxZoom: 15,
-            tileSize: 256, // Standard Leaflet tile size
-            zoomOffset: 0  // Remove any offsets that may cause misalignment
+            tileSize: 256, // Ensure standard tile size
+            detectRetina: true, // Improve rendering
+            zoomOffset: 0 
         });
         map.addLayer(osm);
         
         // Fix GBIF Overlay Tile Projection (if issue persists, check EPSG:4326 vs 3857)
-        var gbifOverlay = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?srs=EPSG:4326&taxonKey=5333401&bin=hex&hexPerTile=117&style=purpleYellow-noborder.poly', {
+        var gbifOverlay = L.tileLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?srs=EPSG:3857&taxonKey=5333401&bin=hex&hexPerTile=117&style=purpleYellow-noborder.poly', {
             attribution: '<a href="https://www.gbif.org">GBIF</a>',
             minZoom: 1,
             maxZoom: 15,
-            tileSize: 256, // Ensure correct tile sizing
+            tileSize: 256, // Standard tile size
             zoomOffset: 0
         });
         map.addLayer(gbifOverlay);
