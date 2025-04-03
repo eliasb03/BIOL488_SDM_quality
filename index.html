@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOL 488 Biodiversity Records Uncertainty</title>
+    <title>Consequences of Location Imprecision in Biodiversity Informatics</title>
     <style>
         body {
             font-family: Helvetica, Arial, sans-serif;
@@ -23,54 +23,86 @@
             margin-bottom: 30px;
         }
         
+        .subheader {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #124E78;
+        }
+        
+        .full-width {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: left;
+        }
+        
+        .full-width heading {
+            max-width: 100%;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #124E78;
+            text-align: left;
+        }
+        
         .container {
             display: flex;
             justify-content: space-between;
             margin: 0 5px;
         }
         
-        /* Left Box for Text (Main Column) */
         .left-box {
             width: 48%; 
-            background-color: transparent;
-            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
             padding: 20px;
-            border-radius: 1px;
+            text-align: left;
         }
-
+        
+        .left-box h2 {
+            font-size: 20px;
+            color: #124E78;
+        }
+        
         .left-box p {
             font-size: 18px;
             line-height: 1.5;
-            max-width: 100%;
         }
-
-        /* Right Column with Maps */
+        
         .right-column {
             width: 48%;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-
-        .right-plot {
-            width: 80%;
-            height: 50%;
+        
+        .right-plot img, .right-map iframe {
+            width: 100%;
+            height: auto;
         }
-
-        .right-map {
-            width: 90%;
-            height: 50%;
-            border: none;
-            overflow: hidden;
-        }
-
+        
         .gbif-map {
             display: flex;
             flex-wrap: wrap; 
-            overflow: hidden;
             width: 100%;
             height: 350px; 
             border: none;
+        }
+        
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #124E78;
+            margin: 0px 0;
+        }
+
+        #map {
+            height: 100%;
+            width: 70%;
+            border: 0px solid black;
         }
         
         .image-container {
@@ -78,27 +110,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-         }
-         
-         .image-container img {
+        }
+        
+        .image-container img {
             width: 100%;
             height: auto;
-         }
-         
-         .map-container {
+        }
+        
+        .map-container {
             width: 70%;
             background-color: lightgray;
         }
         
-        /* Adjustments for smaller screens */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Stack elements vertically on smaller screens */
+                flex-direction: column;
                 margin: 10px;
             }
-        
+            
             .left-box, .right-column {
-                width: 100%; /* Full width on small screens */
+                width: 100%;
                 margin-bottom: 20px;
             }
         }
@@ -114,6 +145,7 @@
             color: #444;
             max-width: 100%;
             margin: 0 auto 5px;
+            
         }
 
         .sdm_plot d {
@@ -123,6 +155,7 @@
             max-width: 100%;
             margin: 0 auto 5px;
             font-weight: bold;
+            
         }
         
         .sdm_plot img {
@@ -133,20 +166,7 @@
             padding: 0; /* Remove any padding */
             display: block; /* Ensure no space below the image */
         }
-
-        hr {
-            border: none;
-            height: 2px;
-            background-color: #124E78;
-            margin: 0px 0;
-        }
-
-        #map {
-            height: 100%;
-            width: 70%;
-            border: 0px solid black;
-        }
-
+        
         footer {
             background-color: #124E78;
             color: white;
@@ -155,40 +175,43 @@
             margin-top: 50px;
         }
     </style>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-    <div class="banner">BIOL 488 Biodiversity Records Uncertainty</div>
+    <div class="banner">Consequences of Location Imprecision in Biodiversity Informatics</div>
+    <div class="subheader">How does data quality influence the inferences we can make using biodiversity databases?</div>
     
-    <!-- Main container for the page -->
+    <p class="full-width"> 
+        <heading> What is Biodiversity Informatics? </heading>
+    </p>
+    
+    <p class="full-width">Biodiversity Informatics is the field that deals with collecting, managing, analyzing, and sharing biodiversity data using digital tools and computational methods. It bridges biology, data science, and technology to help researchers understand species distributions, conservation outcomes, and ecological patterns.</p>
+    
+    <p class="full-width">By integrating data from sources like museum collections, citizen science platforms (e.g., iNaturalist), and global databases (e.g., GBIF), Biodiversity Informatics enables large-scale studies on species population and distribution trends, impacts of climate change, and ecosystem health and function more broadly. It’s an essential field for conservation planning and scientific research!</p>
+    
     <div class="container">
-        <!-- Left Box for Main Text -->
         <div class="left-box">
-            <p>Biodiversity data are records of organisms of all sorts that show when and where that species was seen. This type of data can come from many different sources, including museum databases like the Beaty Biodiversity Museum or public records from programs like iNaturalist! Resources like the Global Biodiversity Information Facility collect all of these records into one place and facilitate research of all kinds.</p>
-            <p>Sometimes biodiversity records have associated data integrity problems, like incorrect ID, wrong collection date, or false locations. For researchers, it is important to know which records have enough quality to be used in their analysis.</p>
-            <p>This project tests how precision uncertainty of records impact their ability to create meaningful scientific findings. This is done by filtering data based on minimum uncertainty thresholds, and then creating species distribution models based on remaining data points. Species distribution models use geographic location and presence/absence records to determine which habitat has similar climatic traits as the known habitat. In this way it generates an estimate of where we expect the species to exist or to be able to exist.</p>
-            <p>By setting a higher uncertainty threshold, the model receives more training data, but of a lower quality. This project looks to determine appropriate thresholds based on changes to the projected distribution between cutoffs.</p>
-        </div>
+            <h2>What are the Limitations of Biodiversity Informatics?</h2>
+            <p>Biodiversity records are incredibly valuable, but they also come with challenges. Data integrity issues—such as misidentified species, incorrect collection dates, or inaccurate locations—can impact quality. Some records may lack key details, making it difficult to verify their reliability. For researchers, assessing data quality is essential to ensure that only trustworthy records are used in analysis.</p>
+            
+            <h2>How can we address these problems?</h2>
+            <p>This project explores how the location, precision, and uncertainty of biodiversity records affect their scientific reliability. By carrying out analyses on data that has been filtered on various uncertainty thresholds. When filtering for more precise data we lose out on a certain amount of data points, whereas, an imprecise threshold gives us more data to work with, but decreases the quality of our inferences. The goal is to try and balance the trade-off of inference quality between decreased record count and accuracy.</p>
 
-        <!-- Right Column for Maps -->
+            <p>In this project, we build a series of species distribution models filtering for high and low-quality records, and visually assess the differences in the outputs. Species distribution models use records of species observations combined with climatic records to predict how likely a species is to occur in different places.</p>
+        </div>
+        
         <div class="right-column">
             <div class="right-plot">
-                <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/optimum_graph_background.png" 
-             alt="Cost Benefit Graph" style="width: 100%; height: auto;">
+                <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/optimum_graph_background.png" alt="Cost Benefit Graph">
             </div>
             
             <div class="right-map">
-                <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" 
-                        width="100%" height="450px">
-                </iframe>
+                <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" width="75%" height="100%"></iframe>
             </div>
-            
         </div>
     </div>
-
+    
     <hr>
-
+    
     <div class="sdm_plot">
         <p>This plots shows all records of <em>Cassiope tetragona</em> from the Global Biodiversity Information Facility (GBIF)</p>
     </div> 
@@ -233,30 +256,24 @@
     
     <hr>
     
-    <!-- SDM Plot Section (Image and Description) -->
     <div class="sdm_plot">
-        <p>These plots visualizes the species distribution model (SDM) of <em>Cassiope tetragona</em> using points at different accuracy thresholds.</p>
-        <p>The maps shows the predicted suitability for the species based on point locations and climatic variables</p>
-        <p>Blue regions are predicted suitable habitat. Purple dots show records used in the model</p>
-
-        <d>10m</d>
-        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10m.png" 
-             alt="Cassiope tetragona SDM 10m" style="width: 100%; height: auto;">
-
-        <d>100m</d>
-        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_100m.png" 
-             alt="Cassiope tetragona SDM 100m" style="width: 100%; height: auto;">
-
-        <d>1km</d>
-        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_1000m.png" 
-             alt="Cassiope tetragona SDM 1km" style="width: 100%; height: auto;">
-
-        <d>10km</d>
-        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10000m.png" 
-             alt="Cassiope tetragona SDM 10km" style="width: 100%; height: auto;">
+        <p>These plots visualize the species distribution model (SDM) of <em>Cassiope tetragona</em> using points at different accuracy thresholds.</p>
+        <p>The maps show the predicted suitability for the species based on point locations and climatic variables.</p>
+        <p>Blue regions are predicted suitable habitat. Purple dots show records used in the model.</p>
         
+        <p><strong>10m</strong></p>
+        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10m.png" alt="Cassiope tetragona SDM 10m" style="width: 100%; height: auto;">
+        
+        <p><strong>100m</strong></p>
+        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_100m.png" alt="Cassiope tetragona SDM 100m" style="width: 100%; height: auto;">
+        
+        <p><strong>1km</strong></p>
+        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_1000m.png" alt="Cassiope tetragona SDM 1km" style="width: 100%; height: auto;">
+        
+        <p><strong>10km</strong></p>
+        <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/cassiope_tetragona_SDM_10000m.png" alt="Cassiope tetragona SDM 10km" style="width: 100%; height: auto;">
     </div>
-
+    
     <!-- Footer Section with About Project Text -->
     <footer>
         <h2>About the Project</h2>
