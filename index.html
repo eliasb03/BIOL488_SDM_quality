@@ -86,22 +86,30 @@
             flex-direction: column;
             gap: 10px;
             align-items: center;
+            justify-content: center;
         }
         
+        
         .right-map iframe, .right-map img {
-            width: 100%;    
-            height: 500px;
+            width: 95%;
+            max-width: 95%;
+            height: 300px;
             margin-top: 20px;
             align-content: center;
             padding: 0px;
+            justify-content: center; /* Centers the content horizontally */
+            align-items: center;     /* Centers the content vertically */ 
         }
         
         .right-plot img {
-            width: 100%;
+            width: 95%;
+            max-width: 95%;
             height: auto; /* This allows the image to scale */
             max-height: 500px; /* You can adjust the max-height as needed */
             object-fit: contain; /* Ensures the image scales without distortion */
             margin-top: 20px;
+            justify-content: center; /* Centers the content horizontally */
+            align-items: center;     /* Centers the content vertically */
         }
         
         .gbif-map {
