@@ -14,7 +14,7 @@
         }
         
         .banner {
-            background-color: #124E78;
+            background-color: #482173;
             color: white;
             text-align: center;
             padding: 30px 20px;
@@ -28,7 +28,7 @@
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #124E78;
+            color: #482173;
         }
         
         .full-width {
@@ -46,7 +46,7 @@
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #124E78;
+            color: #482173;
             text-align: left;
         }
         
@@ -54,6 +54,7 @@
             display: flex;
             justify-content: space-between;
             margin: 0 5px;
+            flex-wrap: wrap;
         }
         
         .left-box {
@@ -64,7 +65,7 @@
         
         .left-box h2 {
             font-size: 20px;
-            color: #124E78;
+            color: #482173;
         }
         
         .left-box p {
@@ -77,16 +78,20 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            align-items: center;
         }
         
         .right-plot img, .right-map iframe {
             width: 100%;
             height: auto;
+            margin-top: 20px;
+            align-content: center;
         }
         
         .gbif-map {
             display: flex;
             flex-wrap: wrap; 
+            align-items: stretch;
             width: 100%;
             height: 350px; 
             border: none;
@@ -94,8 +99,8 @@
         
         hr {
             border: none;
-            height: 2px;
-            background-color: #124E78;
+            height: 0px;
+            background-color: #black;
             margin: 0px 0;
         }
 
@@ -107,14 +112,15 @@
         
         .image-container {
             width: 30%;
-            display: flex;
+            height: 350px;
             align-items: center;
             justify-content: center;
         }
         
         .image-container img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
         }
         
         .map-container {
@@ -130,21 +136,27 @@
             
             .left-box, .right-column {
                 height: 100%;
+                width: 100%;
                 margin-bottom: 0px;
+            }
+            
+            body, html {
+               overflow-x: hidden; /* Prevents horizontal scrolling */
             }
         }
         
         .sdm_plot {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 0.5px;
         }
         
         .sdm_plot p {
+            background-color: #482173; /* Purple background */
             font-size: 18px;
             line-height: 1.5;
-            color: #444;
+            color: white;
             max-width: 100%;
-            margin: 0 auto 5px;
+            margin: 0 auto 0px;
             
         }
 
@@ -168,13 +180,15 @@
         }
         
         footer {
-            background-color: #124E78;
+            background-color: #482173;
             color: white;
             text-align: center;
             padding: 30px 20px;
             margin-top: 50px;
         }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="banner">Consequences of Location Imprecision in Biodiversity Informatics</div>
@@ -198,9 +212,9 @@
         
         <div class="right-column">
           <div class="right-map">
-              <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" width="100%" height="100%"></iframe>
+              <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" width="60%" height="60%"></iframe>
               <p style="text-align: center; font-size: 16px; color: #444; margin-top: 5px;">
-                  <em>Map showing the size of location imprecision.</em>
+                  <em>Map showing location imprecision. Rings show relative distance of 10m, 100m, 1km, 10km, 100km from the Beaty Biodiversity Museum. Click on points to see reference locations to get a sense of distance. Scroll in or out to see full range of accuracies. </em>
               </p>
           </div>
       </div>
@@ -220,7 +234,7 @@
             <div class="right-plot">
                 <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/optimum_graph_background.png" alt="Cost Benefit Graph">
                 <p style="text-align: center; font-size: 16px; color: #444; margin-top: 5px;">
-                    <em>Cost-benefit trade-off of including imprecise records in biodiversity analysis.</em>
+                    <em>Conceptual Figure showing the cost-benefit trade-off of including more imprecise records in biodiversity analysis.An optimum point is shown, where benefits are maximized and costs are minimized.</em>
                 </p>
             </div>
         </div>
