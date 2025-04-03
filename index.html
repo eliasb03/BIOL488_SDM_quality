@@ -210,7 +210,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-    <div class="banner">Consequences of Location Imprecision in Biodiversity Informatics</div>
+    <div class="banner">Quantity over Quality?<br>Consequences of Location Imprecision in Biodiversity Informatics</div>
     <div class="subheader">How does data quality influence the inferences we can make using biodiversity databases?</div>
     
     <p class="full-width"> 
@@ -330,24 +330,34 @@
         <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/website_images/cassiope_tetragona_SDM_100000m.png" alt="Cassiope tetragona SDM 10km" style="width: 100%; height: auto;">
     </div>
     
+    <div style="height: 20px;"></div>
+    
     <hr>
     
     <div class="subheader">What does this teach us?</div>
     
-    <hr>
-    
     <div class="takeaway">
-        <p>In summary, the project highlights the importance of data quality in biodiversity informatics. By analyzing the impact of location imprecision on species distribution models, we can better understand how to balance data quantity and quality for more reliable scientific inferences.</p>
+        <p>This project provides a visual framework to assess the impact of including higher quality or quantity of biodiversity data in informatics research. Reflections can be made by looking at the above distribution models, and comparing to the map of all GBIF observations of <em>Cassiope tetragona</em>.</p>
+        
+        <p>The models show that as we include more records, the predicted distribution of the species generally becomes wider, but not necessarily less reliable. If we stick to very few records we miss out on a lot of actual habitat for the focal species. </p>
+        
+        <p> This project highlights the importance of consider data quality and quantity in biodiversity informatics. These tools are pwoerful but do not come without caveats. </p>
+      </div>
+      
+      <div class="subheader">What next?</div>
+      
+      <div class="takeaway">
+        <p>A big next step for this project would be to expand this analysis over more species and introduce a quantitative comparison to judge how accruate out esimtates are to the true distirbution. This could be done by ground truthing the distribution, or comparing to distirbutions generated using different datasets. </p>
+        
         <p>As we continue to explore the complexities of biodiversity data, it becomes clear that careful consideration of data quality is essential for effective conservation and research efforts.</p>
     </div>
     
     
-    
-    <!-- Footer Section with About Project Text -->
     <footer>
         <h2>About the Project</h2>
         <p>This project is the outcome of a final assignment for BIOL 488A, Introduction to Natural History Collections, at the University of British Columbia, completed by Elias Bowman, in March 2025.</p>
         <p>The project was completed with support from Mark Pitblado, Jackie Chambers, Bridgette Clarkson, the rest of the BIOL 488 teaching team, and the Beaty Biodiversity Museum, on the territory of the Musqueam People.</p>
+        <p>Code and resources used to create this project can be found on GitHub at https://github.com/eliasb03/BIOL488_SDM_quality</p>
     </footer>
 </body>
 </html>
