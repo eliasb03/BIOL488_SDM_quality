@@ -156,18 +156,44 @@ plot_distribution_model <- function(species_dist) {
     species_coords$latitude,
     col = "#482173",
     pch = 19,
-    cex = 1
+    cex = 0.5
   )
 }
 
 species_dist <- species_distribution_model(gbif_data, uncertainty = 10)
+pdf("species_distribution_10.pdf", width = 8, height = 6, bg = "#f0f0f0")  # Light gray background
+
 plot_distribution_model(species_dist)
 
+dev.off()
 
+species_dist <- species_distribution_model(gbif_data, uncertainty = 100)
+pdf("species_distribution_100.pdf", width = 8, height = 6, bg = "#f0f0f0")  # Light gray background
 
+plot_distribution_model(species_dist)
 
+dev.off()
 
+species_dist <- species_distribution_model(gbif_data, uncertainty = 1000)
+pdf("species_distribution_1000.pdf", width = 8, height = 6, bg = "#f0f0f0")  # Light gray background
 
+plot_distribution_model(species_dist)
+
+dev.off()
+
+species_dist <- species_distribution_model(gbif_data, uncertainty = 10000)
+pdf("species_distribution_10000.pdf", width = 8, height = 6, bg = "#f0f0f0")  # Light gray background
+
+plot_distribution_model(species_dist)
+
+dev.off()
+
+species_dist <- species_distribution_model(gbif_data, uncertainty = 100000)
+pdf("species_distribution_100000.pdf", width = 8, height = 6, bg = "#f0f0f0")  # Light gray background
+
+plot_distribution_model(species_dist)
+
+dev.off()
 
 
 # 
