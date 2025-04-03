@@ -147,50 +147,58 @@ plot_distribution_model <- function(species_dist) {
        #add = TRUE,
        legend = FALSE,
        main = "Species Distribution Model", 
-       col = c(NA, "#1A85FF"))
+       col = c(NA, "#fde725"))
   
   plot(basemap, add = TRUE, border = "black")
   
   points(
     species_coords$longitude,
     species_coords$latitude,
-    col = "#D41159",
+    col = "#482173",
     pch = 19,
-    cex = 0.20
+    cex = 1
   )
 }
 
+species_dist <- species_distribution_model(gbif_data, uncertainty = 10)
 plot_distribution_model(species_dist)
 
 
-####################
 
-library(leaflet)
-library(leaflet.extras)
-library(terra)
 
-# Convert raster prediction to a spatial format
-prediction_raster <- species_dist$prediction
-threshold_mask <- prediction_raster > species_dist$threshold
 
-# Define a color palette for predictions
-pal <- colorNumeric(palette = "Blues", domain = values(threshold_mask), na.color = NA)
 
-# Create leaflet map
-m <- leaflet() %>%
-  addProviderTiles(providers$Esri.WorldImagery) %>%  # Use Esri satellite basemap
-  addRasterImage(threshold_mask, colors = pal, opacity = 0.5) %>%  # Overlay prediction raster
-  addPolygons(data = species_dist$region_map, color = "black", fill = FALSE) %>%  # Add region borders
-  addCircleMarkers(
-    lng = species_dist$obs_coords$longitude,
-    lat = species_dist$obs_coords$latitude,
-    color = "#D41159",
-    radius = 2,
-    stroke = FALSE,
-    fillOpacity = 0.7
-  ) %>%
-  addLegend(pal = pal, values = values(threshold_mask), title = "Species Presence Probability")  # Add legend
 
-# Save map as HTML
-htmlwidgets::saveWidget(m, "species_map.html", selfcontained = TRUE)
+
+# 
+# ####################
+# 
+# library(leaflet)
+# library(leaflet.extras)
+# library(terra)
+# 
+# # Convert raster prediction to a spatial format
+# prediction_raster <- species_dist$prediction
+# threshold_mask <- prediction_raster > species_dist$threshold
+# 
+# # Define a color palette for predictions
+# pal <- colorNumeric(palette = "Blues", domain = values(threshold_mask), na.color = NA)
+# 
+# # Create leaflet map
+# m <- leaflet() %>%
+#   addProviderTiles(providers$Esri.WorldImagery) %>%  # Use Esri satellite basemap
+#   addRasterImage(threshold_mask, colors = pal, opacity = 0.5) %>%  # Overlay prediction raster
+#   addPolygons(data = species_dist$region_map, color = "black", fill = FALSE) %>%  # Add region borders
+#   addCircleMarkers(
+#     lng = species_dist$obs_coords$longitude,
+#     lat = species_dist$obs_coords$latitude,
+#     color = "#D41159",
+#     radius = 2,
+#     stroke = FALSE,
+#     fillOpacity = 0.7
+#   ) %>%
+#   addLegend(pal = pal, values = values(threshold_mask), title = "Species Presence Probability")  # Add legend
+# 
+# # Save map as HTML
+# htmlwidgets::saveWidget(m, "species_map.html", selfcontained = TRUE)
 
