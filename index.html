@@ -76,7 +76,7 @@
             width: 48%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
         }
         
         .right-plot img, .right-map iframe {
@@ -125,12 +125,12 @@
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
-                margin: 10px;
+                margin: 5px;
             }
             
             .left-box, .right-column {
-                width: 100%;
-                margin-bottom: 20px;
+                height: 100%;
+                margin-bottom: 0px;
             }
         }
         
@@ -188,13 +188,30 @@
     
     <p class="full-width">By integrating data from sources like museum collections, citizen science platforms (e.g., iNaturalist), and global databases (e.g., GBIF), Biodiversity Informatics enables large-scale studies on species population and distribution trends, impacts of climate change, and ecosystem health and function more broadly. It’s an essential field for conservation planning and scientific research!</p>
     
+    <hr>
+    
     <div class="container">
         <div class="left-box">
             <h2>What are the Limitations of Biodiversity Informatics?</h2>
             <p>Biodiversity records are incredibly valuable, but they also come with challenges. Data integrity issues—such as misidentified species, incorrect collection dates, or inaccurate locations—can impact quality. Some records may lack key details, making it difficult to verify their reliability. For researchers, assessing data quality is essential to ensure that only trustworthy records are used in analysis.</p>
-            
+        </div>
+        
+        <div class="right-column">
+          <div class="right-map">
+              <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" width="100%" height="100%"></iframe>
+              <p style="text-align: center; font-size: 16px; color: #444; margin-top: 5px;">
+                  <em>Map showing the size of location imprecision.</em>
+              </p>
+          </div>
+      </div>
+    </div>
+      
+      <hr>
+      
+      <div class="container">
+        <div class="left-box">
             <h2>How can we address these problems?</h2>
-            <p>This project explores how the location, precision, and uncertainty of biodiversity records affect their scientific reliability. By carrying out analyses on data that has been filtered on various uncertainty thresholds. When filtering for more precise data we lose out on a certain amount of data points, whereas, an imprecise threshold gives us more data to work with, but decreases the quality of our inferences. The goal is to try and balance the trade-off of inference quality between decreased record count and accuracy.</p>
+            <p>This project explores how uncertainty in the location of biodiversity records affect their scientific reliability. By carrying out analyses on data that has been filtered on various uncertainty thresholds. When filtering for more precise data we lose out on a certain amount of data points, whereas, an imprecise threshold gives us more data to work with, but decreases the quality of our inferences. The goal is to try and balance the trade off of inference quality between decreased record count and accuracy.</p>
 
             <p>In this project, we build a series of species distribution models filtering for high and low-quality records, and visually assess the differences in the outputs. Species distribution models use records of species observations combined with climatic records to predict how likely a species is to occur in different places.</p>
         </div>
@@ -202,13 +219,14 @@
         <div class="right-column">
             <div class="right-plot">
                 <img src="https://raw.githubusercontent.com/eliasb03/BIOL488_SDM_quality/main/test_image/optimum_graph_background.png" alt="Cost Benefit Graph">
-            </div>
-            
-            <div class="right-map">
-                <iframe src="https://eliasb03.github.io/BIOL488_SDM_quality/webmap/qgis2web_2025_03_25-23_16_08_166695/index.html" width="75%" height="100%"></iframe>
+                <p style="text-align: center; font-size: 16px; color: #444; margin-top: 5px;">
+                    <em>Cost-benefit trade-off of including imprecise records in biodiversity analysis.</em>
+                </p>
             </div>
         </div>
+            
     </div>
+    
     
     <hr>
     
